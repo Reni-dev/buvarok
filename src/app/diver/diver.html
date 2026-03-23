@@ -1,0 +1,30 @@
+<h1>Búváraink adatai</h1>
+
+<div class="search-container">
+  <input type="text" placeholder="Keresés..." [formControl]="searchControl">
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Név</th>
+                <th>Kor</th>
+                <th>Nem</th>
+                <th>Magasság</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(diver of (divers | diverFilter: searchControl.value); track diver.id){
+                <tr>
+                    <td>{{diver.id}}</td>
+                    <td>{{diver.name}}</td>
+                    <td>{{diver.age}}</td>
+                    <td>{{diver.gender}}</td>
+                    <td>{{diver.height}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
